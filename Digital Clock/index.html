@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CLock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <h1>Digital Clock</h1>
+        <div class="container">
+            <div class="clock">
+                <span id="HRS">00</span>
+                <span>:</span>
+                <span id="MIN">00</span>
+                <span>:</span>
+                <span id="SEC">00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let HRS = document.getElementById("HRS");
+        let MIN = document.getElementById("MIN");
+        let SEC = document.getElementById("SEC");
+
+        setInterval(function(){
+            let currentTime= new Date();
+        HRS.innerHTML=(currentTime.getHours()<10?"0":"")+currentTime.getHours()
+        MIN.innerHTML=(currentTime.getMinutes()<10?"0":"")+currentTime.getMinutes()
+        SEC.innerHTML=(currentTime.getSeconds()<10?"0":"")+currentTime.getSeconds()
+        },1000)
+        
+
+
+    </script>
+    
+</body>
+</html>
