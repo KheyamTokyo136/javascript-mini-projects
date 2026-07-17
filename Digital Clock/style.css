@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:poppins, sans-serif;
+    box-sizing: border-box;
+}
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#08001f,#30197d);
+    color: #fff;
+    position :relative;
+}
+h1{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 50px;
+    color: burlywood;
+}
+.container{
+    width: 800px;
+    height: 180px;
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.clock{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(235,0,235,0.11);
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    
+}
+.container::before{
+    content: '';
+    width:180px;
+    height: 180px;
+    position: absolute;
+    top:-50px;
+    left: -50px;
+    border-radius: 5px;
+    background:#f41b75;
+    z-index: -1;
+}
+.container::after{
+    content: '';
+    width:180px;
+    height: 180px;
+    position: absolute;
+    bottom:-50px;
+    right: -50px;
+    border-radius: 50%;
+    background:#419aff;
+    z-index: -1;
+}
+
+.clock span{
+    font-size: 80px;
+    width: 110px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+.clock span::after{
+    font-size: 16px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#HRS::after{
+    content: 'HOURS';
+}
+#MIN::after{
+    content: 'MINS';
+}
+#SEC::after{
+    content: 'SECS';
+}
+
+/*
+01) Digital Clock:
+ 
+(i) Box-Sizing:
+ 
+Make width and height easier to control.
+ 
+(ii) min-height: 100vh:
+ 
+- vh = Viewport height
+- 1vh = 1% of browser height
+- 100vh = 100% of browser height
+ 
+(iii) background: linear-gradient(45deg, #08001f, #30197d);
+ 
+- Gradient = one color smoothly changes into another
+- Deg 45 = moves diagonally
+ 
+(iv) Position: relative:
+ 
+Keep this element in its normal place, but allow it to be moved and act as a reference for absolutely positioned child element.
+v) Position: Absolute
+ 
+Takes the element out of the normal page layout flow, so you can place it anywhere you want.
+It always positions itself relative to its nearest parent element that has  position: relative .
+ 
+ 
+ 
+vi) transform: translate(-50%, -50%)
+ 
+Moves the element back 50% of its own width to the left and 50% of its own height upward.
+This is the standard way to perfectly center an element both horizontally and vertically.
+ 
+ 
+ 
+vii) Backdrop-filter: blur(10px)
+ 
+Applies a blur effect (10 pixels strong) to everything behind/underneath the element, making the background look frosted or soft while the element itself stays clear.
+*/
