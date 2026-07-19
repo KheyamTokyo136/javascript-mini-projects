@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: poppins sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("images.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.key{
+    border:3px solid rgb(39, 4, 12);
+    width:100px;
+    font-size: 30px;
+    color:#fff;
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgba(91, 2, 2, 0.5);
+    box-shadow: 0 15px 15px black;
+    margin: 15px;
+    padding: 20px 50px 40px 40px;
+}
+.playing{
+    transform: scale(1.1);
+    border-color: #bda73c;
+    box-shadow: 0 0 10px #bda73c;
+}
+.key::after{
+    /* content: "hello"; */
+    font-size: 20px;
+    position:absolute;
+    top: 52%;
+    transform: translateX(-60%);
+    color:rgb(19, 241, 130)
+}
+#A::after{
+   content: "CLAP";
+}
+#S::after{
+   content: "HIHAT";
+}
+#D::after{
+   content: "KICK";
+}
+#F::after{
+   content: "OPENHAT";
+}
+#G::after{
+   content: "BOOM";
+}
+#H::after{
+   content: "RIDE";
+}
+#J::after{
+   content: "SNARE";
+}
+#K::after{
+   content: "TOM";
+}
+#L::after{
+   content: "TINK";
+}
