@@ -1,0 +1,276 @@
+/* ===== Design tokens =====
+   Background:  #0f1115 (near-black canvas)
+   Surface:     #ffffff (card)
+   Ink:         #1a1d23 (primary text)
+   Muted:       #6b7280 (secondary text)
+   Accent:      #10b981 (emerald - money/growth)
+   Danger:      #ef4444 (expense/delete)
+   Border:      #e5e7eb
+   Display font: 'Poppins' (headings)
+   Body font:    'Inter' (labels, table)
+   Data font:    'DM Mono' (amounts, dates - tabular alignment)
+*/
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&family=DM+Mono:wght@500&display=swap'); */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f9a8d4, #c084fc 45%, #7dd3fc 100%);
+    background-attachment: fixed;
+    color: #1a1d23;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+    color: #4c1d95;
+    margin-bottom: 4px;
+    margin-top: 8px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.5);
+}
+
+h1::after {
+    content: "Track what comes in, watch what goes out";
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #6b21a8;
+    margin-top: 8px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: left;
+    color: #1a1d23;
+    margin: 0 0 16px;
+}
+
+/* ===== Input card ===== */
+
+.input-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    max-width: 900px;
+    margin: 32px auto 24px;
+    padding: 22px 24px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    animation: riseIn 0.5s ease;
+}
+
+.input-section label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #6b7280;
+    margin-right: -6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.input-section select,
+.input-section input[type="number"],
+.input-section input[type="date"] {
+    padding: 10px 12px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #1a1d23;
+    background-color: #f9fafb;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.input-section select:focus,
+.input-section input:focus {
+    outline: none;
+    border-color: #10b981;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+}
+
+.input-section button {
+    padding: 11px 24px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    transition: transform 0.15s ease, box-shadow 0.25s ease;
+    margin-left: auto;
+}
+
+.input-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35);
+}
+
+.input-section button:active {
+    transform: translateY(0);
+}
+
+/* ===== Expense table card ===== */
+
+.expense-section {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    animation: riseIn 0.5s ease 0.1s both;
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+}
+
+th, td {
+    border: none;
+    border-bottom: 1px solid #eef0f3;
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: none;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 2px solid #1a1d23;
+    padding-bottom: 10px;
+}
+
+tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+tbody td:nth-child(2) {
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    color: #dc2626;
+}
+
+tbody td:nth-child(2)::before {
+    content: "-$";
+}
+
+tbody td:nth-child(3) {
+    font-family: 'DM Mono', monospace;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+tbody td:first-child {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+tfoot td {
+    font-weight: 700;
+    border-bottom: none;
+    border-top: 2px solid #1a1d23;
+    padding-top: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+tfoot td:first-child {
+    font-size: 14px;
+    color: #1a1d23;
+}
+
+#total-amount {
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    color: #10b981;
+}
+
+#total-amount::before {
+    content: "$";
+}
+
+/* ===== Delete button ===== */
+
+.delete-btn {
+    padding: 6px 14px;
+    background-color: transparent;
+    color: #ef4444;
+    border: 1.5px solid #fecaca;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.delete-btn:hover {
+    background-color: #ef4444;
+    color: #fff;
+    border-color: #ef4444;
+    transform: translateY(-1px);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 640px) {
+    .input-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-section label {
+        margin-top: 6px;
+    }
+
+    .input-section button {
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 10px 6px;
+    }
+}
